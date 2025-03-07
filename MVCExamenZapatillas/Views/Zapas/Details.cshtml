@@ -1,0 +1,24 @@
+﻿@{
+    Zapa zapa = ViewData["ZAPASELECCIONADA"] as Zapa;
+}
+
+<ul class="list-group">
+    <li class="list-group-item">Nombre: @zapa.Nombre</li>
+    <li class="list-group-item">@zapa.Descripcion</li>
+    <li class="list-group-item">Precio: @zapa.Precio</li>
+    <li class="list-group-item">
+        <div id="containerimagenes"></div>
+    </li>
+</ul>
+
+@section Scripts {
+    <script>
+        function loadImagenesZapaPaginacion(posicion){
+            $(document).ready(function (){
+                $("#containerimagenes").load("/Zapas/_ImagenesZapaOutPartial?posicion="
+                    + posicion + "&idZapa="+@zapa.IdProducto);
+            });
+        }
+        loadImagenesZapaPaginacion(1);
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿﻿@{
+    ViewData["Title"] = "_ImagenesZapaOutPartial";
+}
+
+@model List<ImagenesZapa>
+
+@{
+    Zapa zapa = ViewData["ZAPATILLASELECIONADO"] as Zapa;
+}
+
+<h1>Zapatilla @ViewData["POSICION"] de @ViewData["ULTIMO"]</h1>
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">
+        <button class="btn btn-info" onclick="loadImagenesZapaPaginacion(1)" id="primero">
+            Primero
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button class="btn btn-info" onclick="loadImagenesZapaPaginacion(@ViewData["ANTERIOR"])" id="anterior">
+            Anterior
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button class="btn btn-info" onclick="loadImagenesZapaPaginacion(@ViewData["SIGUIENTE"])" id="siguiente">
+            Siguiente
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button class="btn btn-info" onclick="loadImagenesZapaPaginacion(@ViewData["ULTIMO"])" id="ultimo">
+            Ultimo
+        </button>
+    </li>
+</ul>
+
+@foreach (ImagenesZapa imagenesZapa in Model)
+{
+    <img src="@imagenesZapa.Imagen" style="width:350px;height:300px"/>
+}
