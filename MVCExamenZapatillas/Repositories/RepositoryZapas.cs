@@ -16,12 +16,14 @@ namespace MVCExamenZapatillas.Repositories
     //select @regsitros = COUNT(IDIMAGEN)
     //from IMAGENESZAPASPRACTICA
     //where IDPRODUCTO = @idproducto
-    //select IMAGEN from
-    //(select CAST(ROW_NUMBER() over (order by IMAGEN) as int) as POSICION,
+    //select IDIMAGEN, IMAGEN, IDPRODUCTO  from
+    //(select CAST(ROW_NUMBER() over (order by IMAGEN) as int) as POSICION, IDIMAGEN, IDPRODUCTO,
     //IMAGEN from IMAGENESZAPASPRACTICA
     //where IDPRODUCTO = @idproducto) as query
     //where query.POSICION = @posicion
     //go
+
+    //exec SP_IMAGENES_ZAPATILLA_OUT 2, 9, 0
     #endregion
     public class RepositoryZapas
     {
